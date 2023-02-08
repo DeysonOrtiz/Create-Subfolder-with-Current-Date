@@ -1,0 +1,8 @@
+on run {input, parameters}
+    set current_directory to item 1 of input as text
+    set current_directory_posix to (POSIX path of current_directory)
+    set CURRENT_DATE to do shell script "date +'%m-%B-%Y'"
+    set subfolder_path to current_directory_posix & "/" & CURRENT_DATE
+    do shell script "mkdir " & quoted form of subfolder_path
+    return input
+end run
